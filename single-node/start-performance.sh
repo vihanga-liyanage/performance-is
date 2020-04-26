@@ -330,6 +330,14 @@ echo "$setup_bastion_node_command"
 # Handle any error and let the script continue.
 $setup_bastion_node_command || echo "Remote ssh command failed."
 
+# TODO: Remove once performance-common is updated
+jtl_splitter_replace_cmd="ssh -i $key_file -o "StrictHostKeyChecking=no" -t ubuntu@$bastion_node_ip cp ./workspace/lib/jtl-splitter-0.3.0.jar ./workspace/jtl-splitter/jtl-splitter-0.3.0.jar"
+echo ""
+echo "Replacing JTL Splitter JAR..."
+echo "*** TODO: Remove once performance-common is updated ***"
+echo "============================================"
+$jtl_splitter_replace_cmd
+
 echo ""
 echo "Running performance tests..."
 echo "============================================"
